@@ -54,5 +54,34 @@ namespace BlazorCountries.Data
             return countries;
         }
 
+        //Update one Countries row based on its CountriesID (SQL Update)
+        public async Task<bool> CountriesUpdate(Countries countries)
+        {
+            using (var conn = new SqlConnection(_configuration.Value))
+            {
+                var parameters = new DynamicParameters();
+                parameters.Add("CountryID", countries.CountryID, DbType.Int32);
+
+                parameters.Add("CountryName", countries.CountryName, DbType.String);
+
+                await conn.ExecuteAsync("spCountries_Update", parameters, commandType: CommandType.StoredProcedure);
+            }
+            return true;
+        }
+
+        //Physically delete one Countries row based on its CountriesID(SQL Delete)
+        public async Task<bool> CountriesDelete(int CountryID)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@CountryId", CountryID, DbType.Int32);
+            
+            using (var conn = new SqlConnection(_configuration.Value))
+            {
+                await conn.ExecuteAsync("spCountries_Delete", parameters, commandType: CommandType.StoredProcedure);
+            }
+            return true;
+        }
+
+
     }
 }
