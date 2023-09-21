@@ -14,6 +14,7 @@ builder.Services.AddSingleton<WeatherForecastService>();
 
 var sqlConnectionConfiguration = new SqlConnectionConfiguration(builder.Configuration.GetConnectionString("SqlDBContext"));
 builder.Services.AddSingleton(sqlConnectionConfiguration);
+//prueba
 
 
 

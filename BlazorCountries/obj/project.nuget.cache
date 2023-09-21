@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WOBGtdDNUA0tFKfmu/pqoJg8zxjZ0H/s67MBUONAmaoU+mM9D0cxSRnR1raVeGgZI72uC4z4Woi2em5uSuxv1g==",
+  "dgSpecHash": "Hh/h0UO9921k696lj0AVNMKXJBskSSrxDm5+PJsWkrX2JZUWPfvRQL8O43SFT3DLSqoyqphykwwo01Tc5jeH9Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\BlazorCountries.csproj",
+  "projectFilePath": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\BlazorCountries.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PC\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
