@@ -1,4 +1,5 @@
-﻿using System;
+﻿//This is the model for one eow in the data table.
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace BlazorCountries.Data

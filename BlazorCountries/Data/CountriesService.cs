@@ -1,4 +1,5 @@
-﻿using Dapper;
+﻿//This is the service for the Countries Class
+using Dapper;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BlazorCountries.Data
 {
-    public class CountryService : ICountriesService
+    public class CountriesService : ICountriesService
     {
         //Data cinnection
         private readonly SqlConnectionConfiguration _configuration;
