@@ -15,7 +15,8 @@ builder.Services.AddSingleton<WeatherForecastService>();
 var sqlConnectionConfiguration = new SqlConnectionConfiguration(builder.Configuration.GetConnectionString("SqlDBContext"));
 builder.Services.AddSingleton(sqlConnectionConfiguration);
 //prueba
-
+builder.Services.AddScoped<ICountriesService, CountriesService>();
+builder.Services.AddScoped<ICitiesService, CitiesService>();
 
 
 //Register Syncfusion license

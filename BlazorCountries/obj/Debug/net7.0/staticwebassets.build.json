@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "0iu2FNdS9sCzRoufw15Kc1Wdlq8bEpwITWKYzZZ1/kk=",
+  "Hash": "AJ/mcd5PLR/19z0GU6Tsk4O8ITBoyh2JNmjkF1Piq44=",
   "Source": "BlazorCountries",
   "BasePath": "_content/BlazorCountries",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "BlazorCountries\\wwwroot",
       "Source": "BlazorCountries",
-      "ContentRoot": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\",
       "BasePath": "_content/BlazorCountries",
       "Pattern": "**"
     }
@@ -1785,10 +1785,10 @@
       "OriginalItemSpec": "C:\\Users\\PC\\.nuget\\packages\\syncfusion.blazor\\22.2.5\\staticwebassets\\styles\\tailwind-dark.css"
     },
     {
-      "Identity": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\obj\\Debug\\net7.0\\scopedcss\\bundle\\BlazorCountries.styles.css",
+      "Identity": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\obj\\Debug\\net7.0\\scopedcss\\bundle\\BlazorCountries.styles.css",
       "SourceId": "BlazorCountries",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
       "BasePath": "_content/BlazorCountries",
       "RelativePath": "BlazorCountries.styles.css",
       "AssetKind": "All",
@@ -1799,13 +1799,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\obj\\Debug\\net7.0\\scopedcss\\bundle\\BlazorCountries.styles.css"
+      "OriginalItemSpec": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\obj\\Debug\\net7.0\\scopedcss\\bundle\\BlazorCountries.styles.css"
     },
     {
-      "Identity": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\BlazorCountries.bundle.scp.css",
+      "Identity": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\BlazorCountries.bundle.scp.css",
       "SourceId": "BlazorCountries",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/BlazorCountries",
       "RelativePath": "BlazorCountries.bundle.scp.css",
       "AssetKind": "All",
@@ -1816,13 +1816,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\BlazorCountries.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\BlazorCountries.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "BlazorCountries",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\",
       "BasePath": "_content/BlazorCountries",
       "RelativePath": "css/bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -1836,10 +1836,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "BlazorCountries",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\",
       "BasePath": "_content/BlazorCountries",
       "RelativePath": "css/bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -1853,10 +1853,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "Identity": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "BlazorCountries",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\",
       "BasePath": "_content/BlazorCountries",
       "RelativePath": "css/open-iconic/font/css/open-iconic-bootstrap.min.css",
       "AssetKind": "All",
@@ -1870,10 +1870,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Identity": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "SourceId": "BlazorCountries",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\",
       "BasePath": "_content/BlazorCountries",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.eot",
       "AssetKind": "All",
@@ -1887,10 +1887,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Identity": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Identity": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "SourceId": "BlazorCountries",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\",
       "BasePath": "_content/BlazorCountries",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.otf",
       "AssetKind": "All",
@@ -1904,10 +1904,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Identity": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Identity": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "SourceId": "BlazorCountries",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\",
       "BasePath": "_content/BlazorCountries",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.svg",
       "AssetKind": "All",
@@ -1921,10 +1921,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Identity": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Identity": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "SourceId": "BlazorCountries",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\",
       "BasePath": "_content/BlazorCountries",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.ttf",
       "AssetKind": "All",
@@ -1938,10 +1938,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Identity": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Identity": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "SourceId": "BlazorCountries",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\",
       "BasePath": "_content/BlazorCountries",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.woff",
       "AssetKind": "All",
@@ -1955,10 +1955,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Identity": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Identity": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "SourceId": "BlazorCountries",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\",
       "BasePath": "_content/BlazorCountries",
       "RelativePath": "css/open-iconic/FONT-LICENSE",
       "AssetKind": "All",
@@ -1972,10 +1972,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Identity": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "SourceId": "BlazorCountries",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\",
       "BasePath": "_content/BlazorCountries",
       "RelativePath": "css/open-iconic/ICON-LICENSE",
       "AssetKind": "All",
@@ -1989,10 +1989,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\ICON-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\css\\open-iconic\\README.md",
+      "Identity": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\css\\open-iconic\\README.md",
       "SourceId": "BlazorCountries",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\",
       "BasePath": "_content/BlazorCountries",
       "RelativePath": "css/open-iconic/README.md",
       "AssetKind": "All",
@@ -2006,10 +2006,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
     },
     {
-      "Identity": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\css\\site.css",
       "SourceId": "BlazorCountries",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\",
       "BasePath": "_content/BlazorCountries",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -2023,10 +2023,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\favicon.png",
+      "Identity": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\favicon.png",
       "SourceId": "BlazorCountries",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\PC\\source\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\wwwroot\\",
       "BasePath": "_content/BlazorCountries",
       "RelativePath": "favicon.png",
       "AssetKind": "All",
