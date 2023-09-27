@@ -110,3 +110,4 @@ C:\Users\PC\Documents\repos\BlazorCountries\BlazorCountries\obj\Debug\net7.0\ref
 C:\Users\PC\Documents\repos\BlazorCountries\BlazorCountries\obj\Debug\net7.0\BlazorCountries.pdb
 C:\Users\PC\Documents\repos\BlazorCountries\BlazorCountries\obj\Debug\net7.0\BlazorCountries.genruntimeconfig.cache
 C:\Users\PC\Documents\repos\BlazorCountries\BlazorCountries\obj\Debug\net7.0\ref\BlazorCountries.dll
+C:\Users\PC\Documents\repos\BlazorCountries\BlazorCountries\bin\Debug\net7.0\Syncfusion.Blazor.Themes.dll

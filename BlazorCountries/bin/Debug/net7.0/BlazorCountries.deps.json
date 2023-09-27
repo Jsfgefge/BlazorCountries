@@ -11,6 +11,7 @@
           "Dapper": "2.0.151",
           "Microsoft.Data.SqlClient": "5.1.1",
           "Syncfusion.Blazor": "22.2.5",
+          "Syncfusion.Blazor.Themes": "22.2.5",
           "Syncfusion.Licensing": "23.1.36"
         },
         "runtime": {
@@ -309,6 +310,14 @@
         },
         "runtime": {
           "lib/net7.0/Syncfusion.Blazor.dll": {
+            "assemblyVersion": "22.2.5.0",
+            "fileVersion": "22.2.5.0"
+          }
+        }
+      },
+      "Syncfusion.Blazor.Themes/22.2.5": {
+        "runtime": {
+          "lib/net7.0/Syncfusion.Blazor.Themes.dll": {
             "assemblyVersion": "22.2.5.0",
             "fileVersion": "22.2.5.0"
           }
@@ -750,6 +759,13 @@
       "sha512": "sha512-YPaoRXcvbJ84KHsiIA2WpQ3PxJauUhCcHtYPf30k/tgw1Wdf8qwn7xI3pDQs4tLj0HBknbq8f5o2EqAJsCK2tw==",
       "path": "syncfusion.blazor/22.2.5",
       "hashPath": "syncfusion.blazor.22.2.5.nupkg.sha512"
+    },
+    "Syncfusion.Blazor.Themes/22.2.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DwNE0V7pXdbu3ZKu8Ls/xSANoBdQE6rK6J0ZZIxVDBMkFQyHtmcYDjEMO1ddY1Ncinous31KEgWCaGOzGDtliw==",
+      "path": "syncfusion.blazor.themes/22.2.5",
+      "hashPath": "syncfusion.blazor.themes.22.2.5.nupkg.sha512"
     },
     "Syncfusion.ExcelExport.Net.Core/22.2.5": {
       "type": "package",

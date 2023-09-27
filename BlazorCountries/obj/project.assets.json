@@ -552,6 +552,25 @@
           "buildMultiTargeting/Syncfusion.Blazor.props": {}
         }
       },
+      "Syncfusion.Blazor.Themes/22.2.5": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/Syncfusion.Blazor.Themes.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/Syncfusion.Blazor.Themes.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/Syncfusion.Blazor.Themes.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/Syncfusion.Blazor.Themes.props": {}
+        }
+      },
       "Syncfusion.ExcelExport.Net.Core/22.2.5": {
         "type": "package",
         "compile": {
@@ -1951,6 +1970,44 @@
         "syncfusion_logo.png"
       ]
     },
+    "Syncfusion.Blazor.Themes/22.2.5": {
+      "sha512": "DwNE0V7pXdbu3ZKu8Ls/xSANoBdQE6rK6J0ZZIxVDBMkFQyHtmcYDjEMO1ddY1Ncinous31KEgWCaGOzGDtliw==",
+      "type": "package",
+      "path": "syncfusion.blazor.themes/22.2.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "README.md",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "build/Syncfusion.Blazor.Themes.props",
+        "buildMultiTargeting/Syncfusion.Blazor.Themes.props",
+        "buildTransitive/Syncfusion.Blazor.Themes.props",
+        "lib/net6.0/Syncfusion.Blazor.Themes.dll",
+        "lib/net6.0/Syncfusion.Blazor.Themes.xml",
+        "lib/net7.0/Syncfusion.Blazor.Themes.dll",
+        "lib/net7.0/Syncfusion.Blazor.Themes.xml",
+        "staticwebassets/bootstrap-dark.css",
+        "staticwebassets/bootstrap.css",
+        "staticwebassets/bootstrap4.css",
+        "staticwebassets/bootstrap5-dark.css",
+        "staticwebassets/bootstrap5.css",
+        "staticwebassets/fabric-dark.css",
+        "staticwebassets/fabric.css",
+        "staticwebassets/fluent-dark.css",
+        "staticwebassets/fluent.css",
+        "staticwebassets/highcontrast.css",
+        "staticwebassets/material-dark.css",
+        "staticwebassets/material.css",
+        "staticwebassets/material3-dark.css",
+        "staticwebassets/material3.css",
+        "staticwebassets/tailwind-dark.css",
+        "staticwebassets/tailwind.css",
+        "syncfusion.blazor.themes.22.2.5.nupkg.sha512",
+        "syncfusion.blazor.themes.nuspec",
+        "syncfusion_logo.png"
+      ]
+    },
     "Syncfusion.ExcelExport.Net.Core/22.2.5": {
       "sha512": "+Y0C348X3DlEW3YAC0zonPmgLoUKHCdpxxz0wUoB6R1EYy2N3FGmborSr+yu/9i/NTIzg4ZWMLGoRUsIjoU6Zg==",
       "type": "package",
@@ -2895,6 +2952,7 @@
       "Dapper >= 2.0.151",
       "Microsoft.Data.SqlClient >= 5.1.1",
       "Syncfusion.Blazor >= 22.2.5",
+      "Syncfusion.Blazor.Themes >= 22.2.5",
       "Syncfusion.Licensing >= 23.1.36"
     ]
   },
@@ -2953,6 +3011,10 @@
             "version": "[5.1.1, )"
           },
           "Syncfusion.Blazor": {
+            "target": "Package",
+            "version": "[22.2.5, )"
+          },
+          "Syncfusion.Blazor.Themes": {
             "target": "Package",
             "version": "[22.2.5, )"
           },

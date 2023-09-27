@@ -61,7 +61,7 @@ namespace BlazorCountries.Data
             using (var conn = new SqlConnection(_configuration.Value))
             {
                 var parameters = new DynamicParameters();
-                parameters.Add("CountryID", countries.CountryID, DbType.Int32);
+                parameters.Add("CountryID", countries.CountryId, DbType.Int32);
 
                 parameters.Add("CountryName", countries.CountryName, DbType.String);
 

@@ -1,0 +1,44 @@
+﻿@using BlazorCountries.Data
+@page "/countriesaddedit/{CountryId:int}"
+@inject ICountriesService CountriesService
+@inject NavigationManager NavigationManager
+
+<h1>Add a Country</h1>
+
+<SfDialog IsModal="true" Width="500px" ShowCloseIcon="false" Visible="true">
+    <h5>Add a Country</h5>
+    <br />
+    <EditForm Model="@countries" OnValidSubmit="@CountriesSave">
+        <div>
+            <SfTextBox Enabled="true" Placeholder="Country"
+                       FloatLabelType="@FloatLabelType.Always"
+            @bind-Value="countries.CountryName"></SfTextBox>
+        </div>
+        <br /><br />
+        <div class="e-footer-content">
+            <div class="button-container">
+                <button type="submit" class="e-btn e-normal e-primary">Save</button>
+                <button type="button" class="e-btn e-normal" @onclick="@Cancel">Cancel</button>
+            </div>
+        </div>
+    </EditForm>
+</SfDialog>
+
+@code {
+    //Create a new, empty Countries object
+    Countries countries = new Countries();
+
+    [Parameter]
+    public int CountryId { get; set; }
+
+    //Excecutes OnValidSubmit of EditForm above.
+    protected async Task CountriesSave() {
+        await CountriesService.CountriesInsert(countries);
+        NavigationManager.NavigateTo("/");
+    }
+
+    //Executes if user clicks the Cancel Button.
+    void Cancel() {
+        NavigationManager.NavigateTo("/");
+    }
+}

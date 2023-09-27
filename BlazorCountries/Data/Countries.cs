@@ -7,7 +7,7 @@ namespace BlazorCountries.Data
     public class Countries
     {
         [Required]
-        public int CountryID { get;set; }
+        public int CountryId { get;set; }
         [StringLength(50)]
         public string CountryName { get; set; }
     }

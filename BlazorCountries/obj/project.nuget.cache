@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Hh/h0UO9921k696lj0AVNMKXJBskSSrxDm5+PJsWkrX2JZUWPfvRQL8O43SFT3DLSqoyqphykwwo01Tc5jeH9Q==",
+  "dgSpecHash": "1Tkd/81KBn+Jnu+XvbaF0v4DeidNrBaCYfhg7F6ul9sGtYNs5uOlQtFJXzrUheILbfHMMeMyJl5p4BUut3/1Tw==",
   "success": true,
   "projectFilePath": "C:\\Users\\PC\\Documents\\repos\\BlazorCountries\\BlazorCountries\\BlazorCountries.csproj",
   "expectedPackageFiles": [
@@ -37,6 +37,7 @@
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\syncfusion.blazor\\22.2.5\\syncfusion.blazor.22.2.5.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\syncfusion.blazor.themes\\22.2.5\\syncfusion.blazor.themes.22.2.5.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\syncfusion.excelexport.net.core\\22.2.5\\syncfusion.excelexport.net.core.22.2.5.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\syncfusion.licensing\\23.1.36\\syncfusion.licensing.23.1.36.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\syncfusion.pdfexport.net.core\\22.2.5\\syncfusion.pdfexport.net.core.22.2.5.nupkg.sha512",

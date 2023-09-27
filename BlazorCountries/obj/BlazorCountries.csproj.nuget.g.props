@@ -14,6 +14,7 @@
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)syncfusion.blazor.themes\22.2.5\buildTransitive\Syncfusion.Blazor.Themes.props" Condition="Exists('$(NuGetPackageRoot)syncfusion.blazor.themes\22.2.5\buildTransitive\Syncfusion.Blazor.Themes.props')" />
     <Import Project="$(NuGetPackageRoot)syncfusion.blazor\22.2.5\buildTransitive\Syncfusion.Blazor.props" Condition="Exists('$(NuGetPackageRoot)syncfusion.blazor\22.2.5\buildTransitive\Syncfusion.Blazor.props')" />
   </ImportGroup>
 </Project>
