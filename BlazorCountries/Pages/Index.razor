@@ -16,7 +16,7 @@
         ContextMenuItems="@(new List<object>() { "AutoFit", "AutoFitAll", "SortAscending", "SortDescending","Copy", "ExcelExport", "CsvExport", "FirstPage", "PrevPage","LastPage", "NextPage"})"
         Toolbar="Toolbaritems">
     <GridPageSettings PageSize="5"></GridPageSettings>
-    <GridEvents OnToolbarClick="ToolbarClickHandler" TValue="Countries"></GridEvents>
+    <GridEvents OnToolbarClick="ToolbarClickHandler" TValue="Countries" RowSelected="RowSelectHandler"></GridEvents>
     <GridColumns>
         <GridColumn Field="@nameof(Countries.CountryId)"
                     HeaderText="Country Id"
@@ -58,11 +58,18 @@
             NavigationManager.NavigateTo($"/countriesaddedit/{CountryID}");
         }
         if (args.Item.Text == "Edit") {
-            //Code for editing
+            if (CountryID > 0) {
+                NavigationManager.NavigateTo($"/countriesaddedit/{CountryID}");
+            }
         }
         if (args.Item.Text == "Delete") {
             //Code for deleting
         }
+    }
+
+    public void RowSelectHandler(RowSelectEventArgs<Countries> args) {
+        //{args.Data} returns the current selected record.
+        CountryID = args.Data.CountryId;
     }
 
 }

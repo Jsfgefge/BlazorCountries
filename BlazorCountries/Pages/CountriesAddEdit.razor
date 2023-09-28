@@ -3,10 +3,10 @@
 @inject ICountriesService CountriesService
 @inject NavigationManager NavigationManager
 
-<h1>Add a Country</h1>
+<h1>@pagetitle</h1>
 
 <SfDialog IsModal="true" Width="500px" ShowCloseIcon="false" Visible="true">
-    <h5>Add a Country</h5>
+    <h5>@pagetitle</h5>
     <br />
     <EditForm Model="@countries" OnValidSubmit="@CountriesSave">
         <div>
@@ -30,15 +30,31 @@
 
     [Parameter]
     public int CountryId { get; set; }
+    public string pagetitle = "Add a Country";
 
     //Excecutes OnValidSubmit of EditForm above.
     protected async Task CountriesSave() {
-        await CountriesService.CountriesInsert(countries);
+        if(CountryId == 0) {
+            await CountriesService.CountriesInsert(countries);
+        }
+        else {
+            await CountriesService.CountriesUpdate(countries);
+        }
         NavigationManager.NavigateTo("/");
     }
 
     //Executes if user clicks the Cancel Button.
     void Cancel() {
         NavigationManager.NavigateTo("/");
+    }
+
+    protected override async Task OnInitializedAsync() {
+        if (CountryId == 0) {
+            pagetitle = "Add a Country";
+        }
+        else {
+            pagetitle = "Edit a Country";
+            countries = await CountriesService.CountriesGetOne(CountryId);
+        }
     }
 }
