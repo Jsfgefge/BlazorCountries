@@ -30,12 +30,22 @@
         </GridColumn>
     </GridColumns>
 </SfGrid>
+<SfDialog @ref="DialogDelete" IsModal="true" Width="250px" ShowCloseIcon="true" Visible="false">
+    <DialogTemplates>
+        <Header> Confirm Delete </Header>
+        <Content> Please confirm that you want to delete this record </Content>
+    </DialogTemplates>
+    <DialogButtons>
+        <DialogButton Content="Delete" IsPrimary="true" OnClick="@ConfirmDeleteYes" />
+        <DialogButton Content="Cancel" IsPrimary="false" OnClick="@ConfirmDeleteNo" />
+    </DialogButtons>
+</SfDialog>
 
 @code {
     private List<ItemModel> Toolbaritems = new List<ItemModel>();
     private SfGrid<Countries> FirstGrid;
     private int? CountryID;
-
+    SfDialog DialogDelete;
 
     // Create an empty list, named countries, of empty Counties objects.
     IEnumerable<Countries> countries;
@@ -63,13 +73,26 @@
             }
         }
         if (args.Item.Text == "Delete") {
-            //Code for deleting
+            DialogDelete.Show();
         }
     }
 
     public void RowSelectHandler(RowSelectEventArgs<Countries> args) {
         //{args.Data} returns the current selected record.
         CountryID = args.Data.CountryId;
+    }
+
+    public async void ConfirmDeleteNo() {
+        await DialogDelete.Hide();
+    }
+
+    public async void ConfirmDeleteYes() {
+        await CountriesService.CountriesDelete(CountryID.GetValueOrDefault()); //This Deletes the record
+        await DialogDelete.Hide();
+
+        //Both following lines requied to refresh the grid
+        countries = await CountriesService.CountriesGetAll();
+        StateHasChanged();
     }
 
 }
