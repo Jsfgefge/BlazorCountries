@@ -12,7 +12,8 @@
         <div>
             <SfTextBox Enabled="true" Placeholder="Country"
                        FloatLabelType="@FloatLabelType.Always"
-            @bind-Value="countries.CountryName"></SfTextBox>
+                       @bind-Value="countries.CountryName">
+            </SfTextBox>
         </div>
         <br /><br />
         <div class="e-footer-content">
@@ -32,6 +33,16 @@
     public int CountryId { get; set; }
     public string pagetitle = "Add a Country";
 
+    protected override async Task OnInitializedAsync() {
+        if (CountryId == 0) {
+            pagetitle = "Add a Country";
+        }
+        else {
+            pagetitle = "Edit a Country";
+            countries = await CountriesService.CountriesGetOne(CountryId);
+        }
+    }
+    
     //Excecutes OnValidSubmit of EditForm above.
     protected async Task CountriesSave() {
         if(CountryId == 0) {
@@ -47,14 +58,5 @@
     void Cancel() {
         NavigationManager.NavigateTo("/");
     }
-
-    protected override async Task OnInitializedAsync() {
-        if (CountryId == 0) {
-            pagetitle = "Add a Country";
-        }
-        else {
-            pagetitle = "Edit a Country";
-            countries = await CountriesService.CountriesGetOne(CountryId);
-        }
-    }
+    
 }

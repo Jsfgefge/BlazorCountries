@@ -30,6 +30,7 @@
         </GridColumn>
     </GridColumns>
 </SfGrid>
+
 <SfDialog @ref="DialogDelete" IsModal="true" Width="250px" ShowCloseIcon="true" Visible="false">
     <DialogTemplates>
         <Header> Confirm Delete </Header>
@@ -41,11 +42,23 @@
     </DialogButtons>
 </SfDialog>
 
+<SfDialog @ref="DialogNoRecordSelected" IsModal="true" Width="250px" ShowCloseIcon="true" Visible="false">
+    <DialogTemplates>
+        <Header> Warning! </Header>
+        <Content> You must select a country </Content>
+    </DialogTemplates>
+    <DialogButtons>
+        <DialogButton Content="Ok" IsPrimary = "true"OnClick="@CloseDialogNoRecordSelected"/>
+    </DialogButtons>
+</SfDialog>
+
+
 @code {
     private List<ItemModel> Toolbaritems = new List<ItemModel>();
     private SfGrid<Countries> FirstGrid;
     private int? CountryID;
     SfDialog DialogDelete;
+    SfDialog DialogNoRecordSelected;
 
     // Create an empty list, named countries, of empty Counties objects.
     IEnumerable<Countries> countries;
@@ -71,9 +84,19 @@
             if (CountryID > 0) {
                 NavigationManager.NavigateTo($"/countriesaddedit/{CountryID}");
             }
+            else {
+                //No record has been selected
+                DialogNoRecordSelected.Show();
+            }
         }
         if (args.Item.Text == "Delete") {
-            DialogDelete.Show();
+            if (CountryID > 0) {
+                DialogDelete.Show();
+            }
+            else {
+                //No record has been selected
+                DialogNoRecordSelected.Show();
+            }
         }
     }
 
@@ -93,6 +116,10 @@
         //Both following lines requied to refresh the grid
         countries = await CountriesService.CountriesGetAll();
         StateHasChanged();
+    }
+
+    private async Task CloseDialogNoRecordSelected() {
+        await this.DialogNoRecordSelected.Hide();
     }
 
 }
