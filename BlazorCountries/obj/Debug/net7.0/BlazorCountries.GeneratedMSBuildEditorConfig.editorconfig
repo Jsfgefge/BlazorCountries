@@ -24,6 +24,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRyaWVzQWRkRWRpdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/PC/Documents/repos/BlazorCountries/BlazorCountries/Pages/CountriesAndCities.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRyaWVzQW5kQ2l0aWVzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/PC/Documents/repos/BlazorCountries/BlazorCountries/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 

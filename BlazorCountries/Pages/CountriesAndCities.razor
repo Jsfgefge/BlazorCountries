@@ -1,0 +1,242 @@
+﻿@page "/countriesandcities"
+@using BlazorCountries.Data
+@inject ICountriesService CountriesService
+@inject ICitiesService CitiesService
+
+<style>
+    .control_wrapper{
+        width: 250px;
+    }
+</style>
+
+<h3> Countries and Cities </h3>
+
+<div class="control_wrapper">
+    <SfDropDownList TItem="Countries"
+                    TValue="string"
+                    DataSource="@countries"
+                    Placeholder="Select a country"
+                    PopupHeight="200px"
+                    PopupWidth="250px">
+        <DropDownListFieldSettings Text="CountryName" Value="CountryId"></DropDownListFieldSettings>
+        <DropDownListEvents TItem="Countries" TValue="string" ValueChange="OnChange"></DropDownListEvents>
+    </SfDropDownList>
+</div>
+
+<div>
+    <SfGrid ID ="Cityid"
+            DataSource="@cities"
+            AllowSorting="true"
+            AllowResizing="true"
+            Height="200">
+        <GridEvents RowSelected="RowSelectedHandler" TValue = "Cities"></GridEvents>
+        <GridColumns>
+            <GridColumn Field="@nameof(Cities.CityName)"
+                        HeaderText="City Nme"
+                        TextAlign="@TextAlign.Left"
+                        Width="50">
+            </GridColumn>
+            <GridColumn Field ="@nameof(Cities.CityPopulation)"
+                        HeaderText="Population"
+                        Format="n"
+                        TextAlign="@TextAlign.Right"
+                        Width="50"></GridColumn>
+        </GridColumns>
+    </SfGrid>
+</div>
+
+<div class="e-footer-content">
+    <br/>
+
+    @*%%%%%%%%%%%%%%%%% Buttons %%%%%%%%%%%%%%%%%*@
+
+    @* %%%%% Add Button %%%%%*@
+    <SfButton CssClass="e-small e-success" @onclick="AddCity">
+        Add a City
+    </SfButton>
+    @* %%%%% Edit Button %%%%%*@
+    <SfButton CssClass="e-small e-success" @onclick="EditCity">
+        Edit a City
+    </SfButton>
+
+    @*%%%%%%%%%%%%%%%%% Dialogs %%%%%%%%%%%%%%%%%*@
+
+    @* %%%%% DuplicateDialog - City %%%%%*@
+    <SfDialog @ref="DialogDuplicateCity" IsModal="true" Width="250px" ShowCloseIcon="true" Visible="false">
+        <DialogTemplates>
+            <Header>Warning!</Header>
+            <Content>City already exists for this country; it cannot be addded again.</Content>
+        </DialogTemplates>
+        <DialogButtons>
+            <DialogButton Content="OK" IsPrimary="true" OnClick="@CloseDialogDuplicateCity"></DialogButton>
+        </DialogButtons>
+    </SfDialog>
+
+    @* %%%%% AddDialog - City %%%%%*@
+    <SfDialog @ref="DialogAddCity" IsModal="true" Width="500px" ShowCloseIcon="true" Visible="false">
+        <EditForm Model="@addCities" OnValidSubmit="@CitiesSave">
+            <div>
+                <SfTextBox Enabled="true" Placeholder="City" FloatLabelType="@FloatLabelType.Always" @bind-Value="addCities.CityName"></SfTextBox>
+                <SfNumericTextBox Enabled="true" Placeholder="Population" Width="50" FloatLabelType="@FloatLabelType.Always" @bind-Value="addCities.CityPopulation">
+                </SfNumericTextBox>
+            </div>
+            <br /><br />
+            <div class="e-footer-content">
+                <div class="button-container">
+                    <button type="submit" class="e-btn e-normal e-primary">Save</button>
+                </div>
+            </div>
+        </EditForm>
+    </SfDialog>
+
+    @* %%%%% SelectionRequiredDialog - Country/City %%%%%*@
+    <SfDialog @ref="DialogMissingCountry" IsModal="true" Width="250px" ShowCloseIcon="true" Visible="false">
+        <DialogTemplates>
+            <Header>Warning!</Header>
+            <Content>You must select a country from the drop-down list</Content>
+        </DialogTemplates>
+        <DialogButtons>
+            <DialogButton Content="Ok" IsPrimary="true" OnClick="@CloseDialogMissingCountry"/>
+        </DialogButtons>
+    </SfDialog>
+
+    @* %%%%% SelectionRequiredDialog - City %%%%%*@
+    <SfDialog @ref="DialogMissingCity" IsModal="true" Width="250px" ShowCloseIcon="true" Visible = "false">
+        <DialogTemplates>
+            <Header>Warning!</Header>
+            <Header>You must select a city from the grid.</Header>
+        </DialogTemplates>
+        <DialogButtons>
+            <DialogButton Content="Ok" IsPrimary="true" OnClick="@CloseDialogMissingCity"></DialogButton>
+        </DialogButtons>
+    </SfDialog>
+
+    @* %%%%% EditDialog - City %%%%%*@
+    <SfDialog @ref="DialogEditCity" IsModal="true" Width="500px" ShowCloseIcon="true" Visible="false">
+        <EditForm Model="@editCities" OnValidSubmit="@CitiesSaveEdit">
+            <div>
+                <SfTextBox Enabled="true" Placeholder="City" FloatLabelType="@FloatLabelType.Always" @bind-Value="editCities.CityName">
+                </SfTextBox>
+                <SfNumericTextBox Enabled="true" Placeholder="Population" Width="50" FloatLabelType="@FloatLabelType.Always" @bind-Value="editCities.CityPopulation">
+                </SfNumericTextBox>
+            </div>
+            <br /><br />
+            <div class="e-footer-content">
+                <div class="button-container">
+                    <button type="submit" class="e-btn e-normal e-primary">Save</button>
+                </div>
+            </div>
+        </EditForm>
+    </SfDialog>
+
+    
+
+</div>
+
+
+@code{
+    IEnumerable<Countries> countries;
+    IEnumerable<Cities> cities;
+    SfDialog DialogAddCity;
+    SfDialog DialogMissingCountry;
+    SfDialog DialogDuplicateCity;
+    SfDialog DialogEditCity;
+    SfDialog DialogMissingCity;
+
+    Cities addCities = new Cities();
+    Cities editCities = new Cities();
+
+
+    [Parameter]
+    public int SelectedCountryId { get; set; } = 0;
+    public int SelectedCityId { get; set; } = 0;
+
+
+    protected override async Task OnInitializedAsync() {
+        //Populate the list of countries objects from the Countries table
+        countries = await CountriesService.CountriesGetAll();
+    }
+
+    public async Task OnChange(Syncfusion.Blazor.DropDowns.ChangeEventArgs<string, Countries> args) {
+        this.SelectedCountryId = args.ItemData.CountryId;
+        cities = await CitiesService.Cities_GetByCountry(this.SelectedCountryId);
+        StateHasChanged();
+    }
+
+    public void RowSelectedHandler(RowSelectEventArgs<Cities> args) {
+        //{args.Data} returns the current selected records.
+        SelectedCityId = args.Data.CityId;
+    }
+
+    private async Task AddCity() {
+        //Check that a country has been selected
+        if (SelectedCountryId == 0) {
+            await this.DialogMissingCountry.Show();
+        }
+        else {
+            await this.DialogAddCity.Show();
+        }
+    }
+
+    private async Task EditCity() {
+        //Check that a city has been selected
+        if(SelectedCityId==0) {
+            await this.DialogMissingCity.Show();
+        }
+        else {
+            //populate editCities (temporary data set used for the editin process)
+            editCities = await CitiesService.CitiesGetOne(SelectedCityId);
+            await this.DialogEditCity.Show();
+        }
+    }
+
+    protected async Task CitiesSaveEdit(){
+        int Success = await CitiesService.CitiesUpdateWithDuplicateChecking(editCities.CityName, editCities.CountryId, editCities.CityPopulation, SelectedCityId);
+        if(Success != 0) {
+            //City Name already exists
+            await this.DialogDuplicateCity.Show();
+        }
+        else {
+            await this.DialogEditCity.Hide();
+            this.StateHasChanged();
+            editCities = new Cities();
+            SelectedCityId = 0;         //If this isn't reset, editing a city for a new country could display an old record.
+        }
+        cities = await CitiesService.Cities_GetByCountry(this.SelectedCountryId);
+        StateHasChanged();
+    }
+
+    private async Task CloseDialogMissingCountry() {
+        await this.DialogMissingCountry.Hide();    
+    }
+
+    protected async Task CitiesSave() {
+        if (addCities.CityId == 0 && addCities.CityName!="" ) {
+            //Insert if CityId is zero.
+
+            addCities.CountryId = SelectedCountryId;
+
+            int Success = await CitiesService.CitiesInsertWithDuplicateChecking(addCities.CityName, addCities.CountryId, addCities.CityPopulation);
+            if(Success != 0) {
+                //City Name already exists
+                await this.DialogDuplicateCity.Show();
+            }
+            else {
+                await this.DialogAddCity.Hide();
+                this.StateHasChanged();
+            }
+        }
+        //Clear City data
+        addCities.CityName = "";
+        addCities.CityPopulation = 0;
+        cities = await CitiesService.Cities_GetByCountry(this.SelectedCountryId);
+        StateHasChanged();
+    }
+
+    private async Task CloseDialogDuplicateCity() {
+        await this.DialogDuplicateCity.Hide();
+    }
+    private async Task CloseDialogMissingCity() {
+        await this.DialogMissingCity.Hide();
+    }
+}

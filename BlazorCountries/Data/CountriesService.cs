@@ -4,6 +4,7 @@ using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks;
 
 namespace BlazorCountries.Data
@@ -18,16 +19,19 @@ namespace BlazorCountries.Data
         }
         // Add (create) a Countries table row (SQL Insert)
 
-        public async Task<bool> CountriesInsert(Countries countries)
+        public async Task<int> CountriesInsertWithDuplicateChecking(string CountryName)
         {
+            int Success = 0;
+            var parameters = new DynamicParameters();
+            parameters.Add("@CountryName", CountryName, DbType.String);
+            parameters.Add("@ReturnValue", dbType: DbType.Int32, direction: ParameterDirection.ReturnValue);
+
             using (var conn = new SqlConnection(_configuration.Value))
             {
-                var parameters = new DynamicParameters();
-                parameters.Add("CountryName", countries.CountryName, DbType.String);
-                //Stored procedure method
-                await conn.ExecuteAsync("spCountries_Insert", parameters, commandType: CommandType.StoredProcedure);
+                await conn.ExecuteAsync("spCountries_InsertWithDuplicateChecking", parameters, commandType: CommandType.StoredProcedure);
+                Success = parameters.Get<int>("@ReturnValue");
             }
-            return true;
+            return Success;
 
         }
         // Get a list of countries rows (SQL Select)
@@ -56,18 +60,19 @@ namespace BlazorCountries.Data
         }
 
         //Update one Countries row based on its CountriesID (SQL Update)
-        public async Task<bool> CountriesUpdate(Countries countries)
+        public async Task<int> CountriesUpdateWithDuplicatesChecking(Countries countries)
         {
+            int Success = 0;
+            var parameters = new DynamicParameters();
+            parameters.Add("CountryId", countries.CountryId, DbType.Int32);
+            parameters.Add("CountryName", countries.CountryName, DbType.String);
+            parameters.Add("@ReturnValue", dbType: DbType.Int32, direction: ParameterDirection.ReturnValue);
             using (var conn = new SqlConnection(_configuration.Value))
             {
-                var parameters = new DynamicParameters();
-                parameters.Add("CountryID", countries.CountryId, DbType.Int32);
-
-                parameters.Add("CountryName", countries.CountryName, DbType.String);
-
-                await conn.ExecuteAsync("spCountries_Update", parameters, commandType: CommandType.StoredProcedure);
+                await conn.ExecuteAsync("spCountries_UpdateWithDuplicateChecking", parameters, commandType: CommandType.StoredProcedure);
+                Success = parameters.Get<int>("@ReturnValue");
             }
-            return true;
+            return Success;
         }
 
         //Physically delete one Countries row based on its CountriesID(SQL Delete)

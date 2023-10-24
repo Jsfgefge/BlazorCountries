@@ -48,7 +48,7 @@
         <Content> You must select a country </Content>
     </DialogTemplates>
     <DialogButtons>
-        <DialogButton Content="Ok" IsPrimary = "true"OnClick="@CloseDialogNoRecordSelected"/>
+        <DialogButton Content="Ok" IsPrimary = "true" OnClick="@CloseDialogNoRecordSelected"/>
     </DialogButtons>
 </SfDialog>
 
@@ -115,6 +115,7 @@
 
         //Both following lines requied to refresh the grid
         countries = await CountriesService.CountriesGetAll();
+        CountryID = 0;
         StateHasChanged();
     }
 

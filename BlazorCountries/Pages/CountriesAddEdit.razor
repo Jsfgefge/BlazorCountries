@@ -25,6 +25,16 @@
     </EditForm>
 </SfDialog>
 
+<SfDialog @ref="DialogWarning" IsModal = "true" Width="250px" ShowCloseIcon="true" Visible="false">
+    <DialogTemplates>
+        <Header> Warning! </Header>
+        <Content> This country already exists! It won't be added again. </Content>
+    </DialogTemplates>
+    <DialogButtons>
+        <DialogButton Content="Ok" IsPrimary="true" OnClick="@CloseDialog"/>
+    </DialogButtons>
+</SfDialog>
+
 @code {
     //Create a new, empty Countries object
     Countries countries = new Countries();
@@ -32,25 +42,48 @@
     [Parameter]
     public int CountryId { get; set; }
     public string pagetitle = "Add a Country";
+    SfDialog DialogWarning;
+
 
     protected override async Task OnInitializedAsync() {
         if (CountryId == 0) {
             pagetitle = "Add a Country";
         }
         else {
-            pagetitle = "Edit a Country";
             countries = await CountriesService.CountriesGetOne(CountryId);
+            pagetitle = "Edit a Country";
         }
     }
-    
+
     //Excecutes OnValidSubmit of EditForm above.
     protected async Task CountriesSave() {
-        if(CountryId == 0) {
-            await CountriesService.CountriesInsert(countries);
+        if (CountryId == 0) {
+            int Success = await CountriesService.CountriesInsertWithDuplicateChecking(countries.CountryName);
+            if(Success != 0) {
+                await OpenDialog();
+            }
+            else {
+                NavigationManager.NavigateTo("/");
+            }
         }
         else {
-            await CountriesService.CountriesUpdate(countries);
+            int Success = await CountriesService.CountriesUpdateWithDuplicatesChecking(countries);
+            if(Success != 0) {
+                //Country Name already exists
+                await this.OpenDialog();
+            }
+            else {
+                NavigationManager.NavigateTo("/");
+            }
         }
+    }
+
+    private async Task OpenDialog() {
+        await this.DialogWarning.Show();
+    }
+
+    private async Task CloseDialog(){
+        await this.DialogWarning.Hide();
         NavigationManager.NavigateTo("/");
     }
 
