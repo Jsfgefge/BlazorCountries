@@ -3,34 +3,36 @@
 @inject ICountriesService CountriesService
 @inject NavigationManager NavigationManager
 
-<h3>Countries List</h3>
+<div class="col-sm-8">
+    <h3>Countries List</h3>
+</div>
 
-<SfGrid @ref="FirstGrid"
-        DataSource="@countries"
-        AllowSorting="true"
-        AllowResizing="true"
-        AllowFiltering="true"
-        AllowPaging="true"
-        AllowReordering="true"
-        AllowExcelExport="true"
-        ContextMenuItems="@(new List<object>() { "AutoFit", "AutoFitAll", "SortAscending", "SortDescending","Copy", "ExcelExport", "CsvExport", "FirstPage", "PrevPage","LastPage", "NextPage"})"
-        Toolbar="Toolbaritems">
-    <GridPageSettings PageSize="5"></GridPageSettings>
-    <GridEvents OnToolbarClick="ToolbarClickHandler" TValue="Countries" RowSelected="RowSelectHandler"></GridEvents>
-    <GridColumns>
-        <GridColumn Field="@nameof(Countries.CountryId)"
-                    HeaderText="Country Id"
-                    TextAlign="@TextAlign.Left"
-                    Width="20">
-        </GridColumn>
-        <GridColumn Field="@nameof(Countries.CountryName)"
-                    HeaderText="Country Name"
-                    TextAlign="@TextAlign.Left"
-                    Width="90">
-        </GridColumn>
-    </GridColumns>
-</SfGrid>
+<div class="col-sm-8">
+    <SfGrid @ref="FirstGrid"
+            DataSource="@countries"
+            AllowSorting="true"
+            AllowResizing="true"
+            AllowFiltering="true"
+            AllowPaging="true"
+            AllowReordering="true"
+            AllowExcelExport="true"
+            ContextMenuItems="@(new List<object>() { "AutoFit", "AutoFitAll", "SortAscending", "SortDescending","Copy", "ExcelExport", "CsvExport", "FirstPage", "PrevPage","LastPage", "NextPage"})"
+            Toolbar="Toolbaritems">
+        <GridPageSettings PageSize="10"></GridPageSettings>
+        <GridEvents OnToolbarClick="ToolbarClickHandler" TValue="Countries" RowSelected="RowSelectHandler"></GridEvents>
+        <GridColumns>
+            <GridColumn Field="@nameof(Countries.CountryName)"
+                        HeaderText="Country Name"
+                        TextAlign="@TextAlign.Left"
+                        Width="90">
+            </GridColumn>
+        </GridColumns>
 
+        <GridPageSettings>
+            <GridFilterSettings Type="Syncfusion.Blazor.Grids.FilterType.Menu"></GridFilterSettings>
+        </GridPageSettings>
+    </SfGrid>
+</div>
 <SfDialog @ref="DialogDelete" IsModal="true" Width="250px" ShowCloseIcon="true" Visible="false">
     <DialogTemplates>
         <Header> Confirm Delete </Header>

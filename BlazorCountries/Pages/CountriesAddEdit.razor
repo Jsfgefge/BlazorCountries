@@ -9,11 +9,13 @@
     <h5>@pagetitle</h5>
     <br />
     <EditForm Model="@countries" OnValidSubmit="@CountriesSave">
+        <DataAnnotationsValidator/>
         <div>
             <SfTextBox Enabled="true" Placeholder="Country"
                        FloatLabelType="@FloatLabelType.Always"
                        @bind-Value="countries.CountryName">
             </SfTextBox>
+            <ValidationMessage For = "@(()=> countries.CountryName)"/>
         </div>
         <br /><br />
         <div class="e-footer-content">

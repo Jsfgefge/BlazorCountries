@@ -8,9 +8,12 @@ namespace BlazorCountries.Data
     {
         [Required]
         public int CityId { get; set; }
-        [StringLength(50)]
+        [Required]
+        [StringLength(50, ErrorMessage = "Name is too long - it cannot be longer than 50 characters.")]
         public string CityName { get; set; }
         public int CountryId { get; set; }
+        [Required]
+        [Range(10000, 32000000, ErrorMessage ="Population must be between 10,000 and 32 million")]
         public int CityPopulation { get; set; }
 
     }

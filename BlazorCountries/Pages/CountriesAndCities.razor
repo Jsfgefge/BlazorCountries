@@ -9,60 +9,83 @@
     }
 </style>
 
-<h3> Countries and Cities </h3>
+<div class="col-sm-8">
+    <h3> Countries and Cities </h3>
+    <br />
 
-<div class="control_wrapper">
-    <SfDropDownList TItem="Countries"
-                    TValue="string"
-                    DataSource="@countries"
-                    Placeholder="Select a country"
-                    PopupHeight="200px"
-                    PopupWidth="250px">
-        <DropDownListFieldSettings Text="CountryName" Value="CountryId"></DropDownListFieldSettings>
-        <DropDownListEvents TItem="Countries" TValue="string" ValueChange="OnChange"></DropDownListEvents>
-    </SfDropDownList>
+    <div class="control_wrapper">
+        <SfDropDownList TItem="Countries"
+                        TValue="string"
+                        DataSource="@countries"
+                        Placeholder="Select a country"
+                        PopupHeight="200px"
+                        PopupWidth="250px"
+                        AllowFiltering="true">
+            <DropDownListFieldSettings Text="CountryName" Value="CountryId"></DropDownListFieldSettings>
+            <DropDownListEvents TItem="Countries" TValue="string" ValueChange="OnChange"></DropDownListEvents>
+        </SfDropDownList>
+    </div>
+
+    <div>
+        <SfGrid ID ="Cityid"
+                DataSource="@cities"
+                AllowSorting="true"
+                AllowResizing="true"
+                Height="200">
+            <GridEvents RowSelected="RowSelectedHandler" TValue = "Cities"></GridEvents>
+            <GridColumns>
+                <GridColumn Field="@nameof(Cities.CityName)"
+                            HeaderText="City Name"
+                            TextAlign="@TextAlign.Left"
+                            Width="50">
+                </GridColumn>
+                <GridColumn Field ="@nameof(Cities.CityPopulation)"
+                            HeaderText="Population"
+                            Format="n"
+                            TextAlign="@TextAlign.Right"
+                            Width="50"></GridColumn>
+            </GridColumns>
+
+            <GridAggregates>
+                <GridAggregate>
+                    <GridAggregateColumns>
+                        <GridAggregateColumn Field=@nameof(Cities.CityPopulation) Type="AggregateType.Sum" Format="N">
+                            <FooterTemplate>
+                                @{
+                                    var aggregate = (context as AggregateTemplateContext);
+                                    <div>
+                                        <p> Total Cities Population: @aggregate.Sum</p>
+                                    </div>
+                                }
+                            </FooterTemplate>
+                        </GridAggregateColumn>
+                    </GridAggregateColumns>
+                </GridAggregate>
+            </GridAggregates>
+
+
+        </SfGrid>
+    </div>
+
+    <div class="e-footer-content">
+        <br/>
+
+        @*%%%%%%%%%%%%%%%%% Buttons %%%%%%%%%%%%%%%%%*@
+
+        @* %%%%% Add Button %%%%%*@
+        <SfButton CssClass="e-small e-success" @onclick="AddCity">
+            Add a City
+        </SfButton>
+        @* %%%%% Edit Button %%%%%*@
+        <SfButton CssClass="e-small e-success" @onclick="EditCity">
+            Edit a City
+        </SfButton>
+        @* %%%%% Delete Button %%%%%*@
+        <SfButton CssClass="e-small e-success" @onclick="DeleteCity">
+            Delete a City
+        </SfButton>
+    </div>
 </div>
-
-<div>
-    <SfGrid ID ="Cityid"
-            DataSource="@cities"
-            AllowSorting="true"
-            AllowResizing="true"
-            Height="200">
-        <GridEvents RowSelected="RowSelectedHandler" TValue = "Cities"></GridEvents>
-        <GridColumns>
-            <GridColumn Field="@nameof(Cities.CityName)"
-                        HeaderText="City Name"
-                        TextAlign="@TextAlign.Left"
-                        Width="50">
-            </GridColumn>
-            <GridColumn Field ="@nameof(Cities.CityPopulation)"
-                        HeaderText="Population"
-                        Format="n"
-                        TextAlign="@TextAlign.Right"
-                        Width="50"></GridColumn>
-        </GridColumns>
-    </SfGrid>
-</div>
-
-<div class="e-footer-content">
-    <br/>
-
-    @*%%%%%%%%%%%%%%%%% Buttons %%%%%%%%%%%%%%%%%*@
-
-    @* %%%%% Add Button %%%%%*@
-    <SfButton CssClass="e-small e-success" @onclick="AddCity">
-        Add a City
-    </SfButton>
-    @* %%%%% Edit Button %%%%%*@
-    <SfButton CssClass="e-small e-success" @onclick="EditCity">
-        Edit a City
-    </SfButton>
-    @* %%%%% Delete Button %%%%%*@
-    <SfButton CssClass="e-small e-success" @onclick="DeleteCity">
-        Delete a City
-    </SfButton>
-
 
     @*%%%%%%%%%%%%%%%%% Dialogs %%%%%%%%%%%%%%%%%*@
 
@@ -80,10 +103,13 @@
     @* %%%%% AddDialog - City %%%%%*@
     <SfDialog @ref="DialogAddCity" IsModal="true" Width="500px" ShowCloseIcon="true" Visible="false">
         <EditForm Model="@addCities" OnValidSubmit="@CitiesSave">
+            <DataAnnotationsValidator/>
             <div>
                 <SfTextBox Enabled="true" Placeholder="City" FloatLabelType="@FloatLabelType.Always" @bind-Value="addCities.CityName"></SfTextBox>
+                <ValidationMessage For="@(()=>addCities.CityName)"/>
                 <SfNumericTextBox Enabled="true" Placeholder="Population" Width="50" FloatLabelType="@FloatLabelType.Always" @bind-Value="addCities.CityPopulation">
                 </SfNumericTextBox>
+                <ValidationMessage For="@(()=>addCities.CityPopulation)" />
             </div>
             <br /><br />
             <div class="e-footer-content">
@@ -119,11 +145,14 @@
     @* %%%%% EditDialog - City %%%%%*@
     <SfDialog @ref="DialogEditCity" IsModal="true" Width="500px" ShowCloseIcon="true" Visible="false">
         <EditForm Model="@editCities" OnValidSubmit="@CitiesSaveEdit">
+            <DataAnnotationsValidator/>
             <div>
                 <SfTextBox Enabled="true" Placeholder="City" FloatLabelType="@FloatLabelType.Always" @bind-Value="editCities.CityName">
                 </SfTextBox>
+                <ValidationMessage For="@(()=>addCities.CityName)" />
                 <SfNumericTextBox Enabled="true" Placeholder="Population" Width="50" FloatLabelType="@FloatLabelType.Always" @bind-Value="editCities.CityPopulation">
                 </SfNumericTextBox>
+                <ValidationMessage For="@(()=>addCities.CityPopulation)" />
             </div>
             <br /><br />
             <div class="e-footer-content">
@@ -147,7 +176,6 @@
 
     </SfDialog>
 
-</div>
 
 
 @code{
