@@ -11,6 +11,6 @@ namespace BlazorCountries.Data {
         Task<Cities> CitiesGetOne(int CityId);
         Task<IEnumerable<Cities>> Cities_GetByCountry(int @CountryId);
         Task<int> CitiesUpdateWithDuplicateChecking(string CityName, int CountryId, int CityPopulation, int CityId);
-        Task<bool> CitiesDelete(int CityId);
+        Task<bool> CitiesDelete(int CityId, int CountryId);
     }
 }

@@ -12,5 +12,6 @@ namespace BlazorCountries.Data
         [Required]
         [StringLength(50, ErrorMessage = "Name is too long - it cannot be longer than 50 characters.")]
         public string CountryName { get; set; }
+        public int Population { get; set; }
     }
 }

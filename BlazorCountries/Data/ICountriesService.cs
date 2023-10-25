@@ -11,6 +11,7 @@ namespace BlazorCountries.Data
         Task<int> CountriesInsertWithDuplicateChecking(String CountryName);
         Task<IEnumerable<Countries>> CountriesGetAll();
         Task<Countries> CountriesGetOne(int CountryId);
+        Task<IEnumerable<Countries>> GetPopulationByCountry();
         Task<int> CountriesUpdateWithDuplicatesChecking(Countries countries);
         Task<bool> CountriesDelete(int CountryId);        
     }

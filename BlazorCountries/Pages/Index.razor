@@ -19,14 +19,43 @@
             ContextMenuItems="@(new List<object>() { "AutoFit", "AutoFitAll", "SortAscending", "SortDescending","Copy", "ExcelExport", "CsvExport", "FirstPage", "PrevPage","LastPage", "NextPage"})"
             Toolbar="Toolbaritems">
         <GridPageSettings PageSize="10"></GridPageSettings>
-        <GridEvents OnToolbarClick="ToolbarClickHandler" TValue="Countries" RowSelected="RowSelectHandler"></GridEvents>
+        <GridEvents OnToolbarClick="ToolbarClickHandler" TValue="Countries"
+                    OnRecordDoubleClick="RecordDoubleClickHandler"
+            RowSelected="RowSelectHandler"></GridEvents>
+
+
+
         <GridColumns>
             <GridColumn Field="@nameof(Countries.CountryName)"
                         HeaderText="Country Name"
                         TextAlign="@TextAlign.Left"
-                        Width="90">
+                        Width="50">
             </GridColumn>
+            <GridColumn Field="@nameof(Countries.Population)"
+                        HeaderText="Population"
+                        Format ="n"
+                        TextAlign="@TextAlign.Left"
+                        Width="30">
+            </GridColumn>
+
         </GridColumns>
+
+        <GridAggregates>
+            <GridAggregate>
+                <GridAggregateColumns>
+                    <GridAggregateColumn Field=@nameof(Countries.Population) Type="AggregateType.Sum" Format="N">
+                        <FooterTemplate>
+                            @{
+                                var aggregate = (context as AggregateTemplateContext);
+                                <div>
+                                    <p> Total Countries Population: @aggregate.Sum</p>
+                                </div>
+                            }
+                        </FooterTemplate>
+                    </GridAggregateColumn>
+                </GridAggregateColumns>
+            </GridAggregate>
+        </GridAggregates>
 
         <GridPageSettings>
             <GridFilterSettings Type="Syncfusion.Blazor.Grids.FilterType.Menu"></GridFilterSettings>
@@ -62,12 +91,15 @@
     SfDialog DialogDelete;
     SfDialog DialogNoRecordSelected;
 
+
     // Create an empty list, named countries, of empty Counties objects.
     IEnumerable<Countries> countries;
+
 
     protected override async Task OnInitializedAsync() {
         //Populate the list of countries objects from the Countries table.
         countries = await CountriesService.CountriesGetAll();
+
         Toolbaritems.Add(new ItemModel() { Text = "Add", TooltipText = "Add a new country", PrefixIcon = "e-add" });
         Toolbaritems.Add(new ItemModel() { Text = "Edit", TooltipText = "Edit selected country", PrefixIcon = "e-edit" });
         Toolbaritems.Add(new ItemModel() { Text = "Delete", TooltipText = "Delete selected country", PrefixIcon = "e-delete" });
@@ -123,6 +155,10 @@
 
     private async Task CloseDialogNoRecordSelected() {
         await this.DialogNoRecordSelected.Hide();
+    }
+
+    public void RecordDoubleClickHandler(RecordDoubleClickEventArgs<Countries> args) {
+        // Here, you can customize your code.
     }
 
 }

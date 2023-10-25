@@ -289,7 +289,7 @@
     }
 
     public async void ConfirmDeleteYes() {
-        await CitiesService.CitiesDelete(SelectedCityId);
+        await CitiesService.CitiesDelete(SelectedCityId, SelectedCountryId);
 
         cities = await CitiesService.Cities_GetByCountry(this.SelectedCountryId);
         await this.DialogDeleteCity.Hide();

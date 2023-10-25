@@ -47,6 +47,14 @@ namespace BlazorCountries.Data
 
         //Get one country based on its CountriesID (SQL Select)
 
+        public async Task<IEnumerable<Countries>> GetPopulationByCountry() {
+            IEnumerable<Countries> countries;
+            using (var conn = new SqlConnection(_configuration.Value)) {
+                countries = await conn.QueryAsync<Countries>("spCountries_GetPopulationByCountry", commandType: CommandType.StoredProcedure);
+            }
+            return countries;
+        }
+
         public async Task<Countries> CountriesGetOne(int @CountryId)
         {
             Countries countries = new Countries();

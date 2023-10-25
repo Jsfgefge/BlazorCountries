@@ -76,9 +76,10 @@ namespace BlazorCountries.Data{
         }
 
         //Physically delete one Cities row based on its CitiesID (SQL Delete)
-        public async Task<bool> CitiesDelete(int CityId) {
+        public async Task<bool> CitiesDelete(int CityId, int CountryId) {
             var parameters = new DynamicParameters();
             parameters.Add("@CityId", CityId, DbType.Int32);
+            parameters.Add("@CountryId", CountryId, DbType.Int32);
             using (var conn = new SqlConnection(_configuration.Value)){
                 await conn.ExecuteAsync("spCities_Delete", parameters, commandType: CommandType.StoredProcedure);
             }
